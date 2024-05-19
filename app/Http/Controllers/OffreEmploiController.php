@@ -64,12 +64,11 @@ class OffreEmploiController extends Controller
             return redirect()->back()->with('Error', 'Erreur lors du traitement, veuillez réessayer !');
 
         return redirect()->route('offre-emploi.index')->with('Success', 'REUSSI ! vos informations ont été envoyé avec succès.');
-
     }
 
     public function show(OffreEmploi $offre_emploi)
     {
-        return view('offres-emploi.show');
+        return view('offres-emploi.show', $offre_emploi);
     }
 
     public function update(Request $request, $offre)
@@ -80,6 +79,4 @@ class OffreEmploiController extends Controller
                 return redirect()->back()->with('Error', 'Echec de l\'opération');
         return redirect()->back()->with('success', 'Opération effectuée');
     }
-
-
 }

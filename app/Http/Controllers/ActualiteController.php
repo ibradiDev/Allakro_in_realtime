@@ -15,8 +15,8 @@ class ActualiteController extends Controller
 
     public function index()
     {
-        $actualites = Actualite::where('status', 1)->paginate(10);
-        $projets = ProjetMairie::paginate(10);
+        $actualites = Actualite::where('status', 1)->paginate(8);
+        $projets = ProjetMairie::paginate(7);
 
         return view('actualite.index', compact('actualites', 'projets'));
     }
@@ -34,7 +34,6 @@ class ActualiteController extends Controller
             return redirect()->back()->with('Error', 'Nous avons rencontré une erreur');
 
         return redirect()->route('actualites.index')->with('success', 'Information publiée');
-
     }
 
     public function edit(Actualite $actualite)
@@ -58,12 +57,9 @@ class ActualiteController extends Controller
                 return redirect()->back()->with('Error', 'Une erreur s\'est produite lors de la sauvegarde, veuillez réessayer');
             else
                 return redirect()->route('actualites.index')->with('Success', 'BRAVO! Actualité modifié avec succès.');
-
         } else {
             $actualite->update(['status' => $request->input('status')]);
             return redirect()->back()->with('Success', 'Opération effectuée');
         }
-
-
     }
 }

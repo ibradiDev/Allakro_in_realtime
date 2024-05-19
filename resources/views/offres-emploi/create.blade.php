@@ -178,8 +178,8 @@
                                     </div>
 
                                     <button class="btn btn-primary w-100" type="submit"
-                                        style="width: fit-content !important;">Enregistrer et
-                                        terminer</button>
+                                        style="width: fit-content !important;">Enregistrer et terminer
+                                    </button>
                                 </form>
                             </div>
                         </div>

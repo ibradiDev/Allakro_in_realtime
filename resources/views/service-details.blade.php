@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends ('layouts.app')
 
 @section('title', "Allakro - Détail de l'emploi")
 

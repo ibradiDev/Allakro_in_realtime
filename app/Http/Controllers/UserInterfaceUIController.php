@@ -16,11 +16,6 @@ use App\Models\CentreDeSante;
 use App\Models\Epidemie;
 use App\Models\Maladie;
 use App\Models\ProjetMairie;
-use App\Models\User;
-use Brian2694\Toastr\Facades\Toastr;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
 
 class UserInterfaceUIController extends Controller
 {
@@ -97,9 +92,8 @@ class UserInterfaceUIController extends Controller
                     break;
                 default:
                     return;
-                // return redirect()->back()->with('Error', 'Désolé, une erreur s\'est produite.');
+                    // return redirect()->back()->with('Error', 'Désolé, une erreur s\'est produite.');
             }
-
         } else
             return redirect()->back()->with('Error', 'Désolé une erreur s\'est produit lors de votre authentification. Veuillez réessayer');
 
@@ -192,7 +186,6 @@ class UserInterfaceUIController extends Controller
         if (!$enfant->save())
             return redirect()->back()->with('Error', 'OUPS ! Une erreur est survenu lors du traitement, veuillez réessayer !');
         return redirect()->route('pageEspaceAccueilFamille')->with('Success', 'FELICITATION ! vos informations de naissance ont été soumise avec succès. Les autorités de Allakro vous contacteront très bientôt.');
-
     }
 
     public function decesForm()
@@ -225,7 +218,6 @@ class UserInterfaceUIController extends Controller
             return redirect()->back()->with('Error', 'OUPS ! Une erreur est survenu lors du traitement, veuillez réessayer !');
 
         return redirect()->route('pageEspaceAccueilFamille')->with('Success', 'FELICITATION ! vos informations de décès ont été envoyé avec succès. Les autorités de Allakro vous contacteront très bientôt.');
-
     }
 
     public function amenagementForm(int $member)
@@ -262,7 +254,6 @@ class UserInterfaceUIController extends Controller
             return redirect()->back()->with('Error', 'OUPS ! Une erreur est survenu lors du traitement, veuillez réessayer !');
 
         return redirect()->route('pageEspaceDeplacements')->with('Success', 'BIENVENUE ! vos informations d\'amenagement ont été envoyé avec succès. Les autorités de Allakro vous contacteront très bientôt.');
-
     }
 
     public function demenagementForm(int $member)
@@ -297,7 +288,6 @@ class UserInterfaceUIController extends Controller
             return redirect()->back()->with('Error', 'OUPS ! Une erreur est survenu lors du traitement, veuillez réessayer !');
 
         return redirect()->route('pageEspaceDeplacements')->with('Success', 'BIENVENUE ! vos informations de démenagement ont été envoyé avec succès. Les autorités de Allakro vous contacteront très bientôt.');
-
     }
 
     public function rechercheEmploiForm()
@@ -362,5 +352,4 @@ class UserInterfaceUIController extends Controller
             return view('service-details', compact('getDatas'));
         }
     }
-
 }

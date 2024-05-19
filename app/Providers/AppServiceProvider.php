@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Carbon\Traits\ToStringFormat;
 use Illuminate\Support\Facades\View;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
@@ -14,6 +15,7 @@ use App\Models\Deces;
 use App\Models\Message;
 use App\Models\OffreEmploi;
 use App\Models\Pharmacie;
+use Carbon\Carbon;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -68,19 +70,23 @@ class AppServiceProvider extends ServiceProvider
 
             $total_hommes = count(Individus::where('sexe_individu', 'M')->get());
             $total_femmes = count(Individus::where('sexe_individu', 'F')->get());
-            $total_individus = count(Individus::all());
+            $total_individus = $total_hommes + $total_femmes;
             $diviseur = $total_individus > 0 ? $total_individus : 1;
 
             $statistics['total_hommes'] = $total_hommes;
             $statistics['total_femmes'] = $total_femmes;
             $statistics['total_individus'] = $total_individus;
-            $statistics['pourcentage_hommes'] = round($total_hommes * 100 / $diviseur) . ' %';
-            $statistics['pourcentage_femmes'] = round($total_femmes * 100 / $diviseur) . ' %';
+            $statistics['pourcentage_hommes'] = round(
+                ($total_hommes * 100) / $diviseur
+            ) . ' %';
+            $statistics['pourcentage_femmes'] = round(
+                ($total_femmes * 100) / $diviseur
+            ) . ' %';
             // Passer les données au tableau de bord
             $view->with($statistics);
         });
 
         // Utiliser le système de pagination de Bootstrap
-        Paginator::useBootstrap();
+        Paginator::useBootstrapFive();
     }
 }

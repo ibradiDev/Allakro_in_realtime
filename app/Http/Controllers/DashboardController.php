@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Famille;
 use App\Models\Individus;
 use App\Models\Amenagement;
 use App\Models\Demenagement;
 use App\Models\Naissance;
 use App\Models\Deces;
 use App\Models\OffreEmploi;
+use App\Models\User;
 
 class DashboardController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth') && User::where('role', 'admin');
     }
 
     public function index()
