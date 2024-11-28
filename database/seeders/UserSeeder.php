@@ -17,12 +17,12 @@ class UserSeeder extends Seeder
         User::truncate();
 
         User::create([
-            'name' => 'Ibra',
-            'prenom' => 'Outis',
-            'email' => 'auth@admin.com',
+            'name' => 'Fake',
+            'prenom' => 'Admin',
+            'email' => 'fake@admin.com',
             'sexe' => 'M',
             'role' => 'admin',
-            'password' => Hash::make('auth.password')
+            'password' => Hash::make('admin')
         ]);
     }
 }

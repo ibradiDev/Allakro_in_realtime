@@ -11,56 +11,125 @@
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+# Instructions pour exécuter le projet Laravel
+
+## Prérequis
+
+Avant de commencer, assurez-vous d'avoir installé les éléments suivants :
+
+-   [PHP](https://www.php.net/downloads) (version 8.0 ou supérieure)
+-   [Composer](https://getcomposer.org/download/)
+-   [Laravel](https://laravel.com/docs/8.x/installation) (version 8.x ou supérieure)
+-   [MySQL](https://www.mysql.com/downloads/) ou un autre système de gestion de base de données
+
+## Cloner le projet
+
+Clonez le dépôt GitHub sur votre machine locale :
+
+```bash
+git clone https://github.com/votre-utilisateur/votre-projet.git
+cd votre-projet
+```
+
+## Installation des dépendances
+
+Installez les dépendances du projet avec Composer :
+
+```bash
+composer install
+```
+
+OU
+
+```bash
+composer update
+```
+
+si votre version de PHP diffère de celle utilisée pour l'appli
+
+## Configuration de l'environnement
+
+Copiez le fichier `.env.example` en `.env` :
+
+```bash
+cp .env.example .env
+```
+
+Modifiez le fichier `.env` pour configurer votre base de données et d'autres paramètres selon vos besoins.
+
+## Générer la clé d'application
+
+Générez la clé d'application Laravel :
+
+```bash
+php artisan key:generate
+```
+
+## Migration de la base de données
+
+Exécutez les migrations pour créer les tables nécessaires dans la base de données :
+
+```bash
+php artisan migrate
+```
+
+## Peupler la base de données
+
+Si vous souhaitez peupler la base de données avec des données de test, exécutez le seeder :
+
+```bash
+php artisan db:seed
+```
+
+## Lancer les serveurs
+
+Démarrez le serveur de développement intégré de Node pour l'utilisation de Vite :
+
+```bash
+yarn
+yarn dev
+```
+
+OU
+
+```bash
+npm install
+npm run dev
+```
+
+Dans un autre terminal, démarrez le serveur de développement intégré de Laravel :
+
+```bash
+php artisan serve
+```
+
+Vous pouvez maintenant accéder à votre application à l'adresse [http://localhost:8000](http://localhost:8000).
+
+## Aide supplémentaire
+
+Pour plus d'informations, consultez la [documentation officielle de Laravel](https://laravel.com/docs).
+
+## Création de l'utilisateur administrateur
+
+Pour créer un utilisateur administrateur dans la base de données, exécutez le seeder :
+
+```bash
+php artisan db:seed UserSeeder
+```
+
+## Connexion en tant qu'administrateur
+
+Pour vous connecter en tant qu'administrateur pour la première fois, utilisez les informations suivantes :
+
+-   **Email** : `fake@admin.com`
+-   **Mot de passe** : `admin`
+
+Après avoir démarré le serveur, accédez à la page de connexion à l'adresse [http://localhost:8000/login](http://localhost:8000/login) et entrez les informations ci-dessus.
+
+### Remarque
+
+Il est recommandé de changer le mot de passe après votre première connexion pour des raisons de sécurité.
