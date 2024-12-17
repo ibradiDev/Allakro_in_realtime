@@ -23,8 +23,8 @@ Avant de commencer, assurez-vous d'avoir installé les éléments suivants :
 Clonez le dépôt GitHub sur votre machine locale :
 
 ```bash
-git clone https://github.com/votre-utilisateur/votre-projet.git
-cd votre-projet
+git clone https://github.com/ibradiDev/Allakro_in_realtime
+cd Allakro_in_realtime
 ```
 
 ## Installation des dépendances
